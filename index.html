@@ -1,14 +1,95 @@
+<!-- Coded by Toms Edvards Vucens (Team GeoStore.LV)-->
 <!DOCTYPE html>
-<header>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="icon.png">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GeoStore.LV</title>
-</header>
-<body style="font-family:Arial">
-    <div>
-        <h2>GeoStore.LV is under construction!</h2>
-        <img src="gears.gif" width="70px" style="margin-left: 420px; margin-top: -50px;">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,397;1,397&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="products.html">Katalogs</a></li>
+                <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="section about">
+        <h2>Par Mums</h2>
+        <p>Mēs esam slēpņotāju grupa, kas vēlas palīdzēt tādiem kā mums izveidot savus slēpņus. Mums ir plašs klāsts ar daudz un dažādiem augstākās kvalitātes slēpņiem un citām slēpņošanai noderīgām lietām.</p>
+    </section>
+
+    <section id="panorama" class="panorama">
+        <img src="Panorama.jpg" alt="panorama">
+    </section>
+
+    <section id="featured" class="section featured">
+        <h2>Piedāvātie Produkti</h2>
+        
+        <div class="product-grid">
+             <div class="featured_product">
+                <img src="PET1.png" alt="PET-Caurspīdīgs">
+                <h3><a href="pet.html">PET Sagatave (Caurspīdīga)</a></h3>
+                <p>€0.40</p>
+                <button class="add-cart-btn" onclick="addToCart('PET Sagatave (Caurspīdīga)', 0.40)">Pievienot Grozam</button>
+            </div>
+            
+            <div class="featured_product">
+                <img src="BURIS1.png" alt="Putnu-Būris">
+                <h3><a href="buris.html">Putnu Būris</a></h3>
+                <p>€10.00</p>
+                <button class="add-cart-btn" onclick="addToCart('Putnu Būris', 10.00)">Pievienot Grozam</button>
+            </div>
+
+            <div class="featured_product">
+                <img src="BISON1.png" alt="Bison-Tube">
+                <h3><a href="bison.html">"Bison" Mikro Konteiners (Sudraba)</a></h3>
+                <p>€1.50</p>
+                <button class="add-cart-btn" onclick="addToCart('Bison Mikro Konteiners (Sudraba)', 1.50)">Pievienot Grozam</button>
+            </div>
+
+            <div class="featured_product">
+                <img src="KOKS1.png" alt="Koka-Kamoflāža">
+                <h3><a href="koks.html">PET Koka Kamoflāža</a></h3>
+                <p>€3.00</p>
+                <button class="add-cart-btn" onclick="addToCart('PET Koka Kamoflāža', 3.00)">Pievienot Grozam</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <a href="products.html" class="buy-now-btn">Visi Produkti 🠊</a>
+    </section>
+
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+          <h3>Jūsu Grozs</h3>
+          <p id="cart-items"></p>
+          <p>Summa: €<span id="total-price">0.00</span></p>
+          <br>
+          <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
+          <a href="order.html" class="buy-now-btn">Veikt Pasūtījumu</a>
+        </div>
     </div>
-    <div>
-        <p style="margin-top: -40px;">Coming soon...</p>
-    </div>
+
+    <footer>
+        <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
+        <p>E-Pasts: info@geostore.lv</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+</html>
