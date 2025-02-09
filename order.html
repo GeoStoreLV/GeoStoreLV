@@ -1376,30 +1376,6 @@
                 });
             }
         });
-
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        const productCategory = document.getElementById('productCategory');
-        const products = document.querySelectorAll('.product');
-
-        productCategory.addEventListener('change', function() {
-            const selectedCategory = this.value;
-            products.forEach(product => {
-                if (selectedCategory === 'all' || product.getAttribute('data-category') === selectedCategory) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
-        });
         
     </script>
 
