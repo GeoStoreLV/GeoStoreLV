@@ -301,6 +301,9 @@ button:hover {
     background-color: #445757;
 }
 
+.checkout {
+    margin-top: 10px;
+}
 .add-cart-btn:hover {
     background-color: #445757;
     color: white;
