@@ -166,6 +166,7 @@ p {
     border-radius: 5px;
     font-size: 1.2em;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 .buy-now-btn:hover {
