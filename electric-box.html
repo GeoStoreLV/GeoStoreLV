@@ -36,7 +36,17 @@
                 <h1>Elektrības Kaste</h1>
                 <p>Konteiners, kas atdarina elektrisko kasti, bet nav hermētisks! Stiprināts uz magnētiem. Iekšā perfekti ielien Filmiņas Konteiners. Paredzēts slēpšanai urbānā teritorijā.</p>
                 <p class="price" style="font-size: 40px;">€3.00</p><br>
-                <button class="btn" onclick="addToCart('Elektrības Kaste', 3.00); openCart()">Pievienot Grozam</button>
+                <select id="productCategory" name="productCategory">
+                    <option value="">-- Izvēlies Veidu --</option>
+                    <option value="magnetisks">Magnētisks</option>
+                    <option value="bez">Bez stiprinājumiem</option>
+                </select>
+                <div class="type" data-category="magnetisks">
+                    <button class="btn" onclick="addToCart('Elektrības Kaste (Magnētiska)', 3.00); openCart()">Pievienot Grozam</button>
+                </div>
+                <div class="type" data-category="bez">
+                    <button class="btn" onclick="addToCart('Elektrības Kaste (Bez stiprinājumiem)', 3.00); openCart()">Pievienot Grozam</button>
+                </div>
             </div>
         </div>
     </section>
@@ -58,6 +68,23 @@
         <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
         <p>E-Pasts: info@geostore.lv</p>
     </footer>
+    <script>
+
+        const productCategory = document.getElementById('productCategory');
+        const products = document.querySelectorAll('.type');
+
+        productCategory.addEventListener('change', function() {
+            const selectedCategory = this.value;
+            products.forEach(product => {
+                if (selectedCategory === 'all' || product.getAttribute('data-category') === selectedCategory) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        });
+        
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

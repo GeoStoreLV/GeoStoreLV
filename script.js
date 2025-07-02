@@ -1,91 +1,118 @@
-// Inicializēt karti
-const map = L.map('map').setView([56.9496, 24.1052], 7);
+let cart = {}; 
+        let totalPrice = 0; 
 
-// Pievieno OpenStreetMap slāni
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+        // Inicializē grozu no localStorage
+        function initializeCart() {
+        const storedCart = localStorage.getItem('cart');
+        const storedTotalPrice = localStorage.getItem('totalPrice');
 
-// Pievieno paraugus iezīmēm
-const markers = [
-     {
-       coords: [56.960069, 24.032195],
-       title: '<a href="https://www.worldcubeassociation.org/competitions/PapildusDisciplinasRiga2025">Papildus Disciplīnas Rīgā 2025</a>',
-       description: "May 17, 2025 - Rīga"
-    },
-];
+        try {
+            if (storedCart) {
+            cart = JSON.parse(storedCart);
+            if (typeof cart !== 'object' || Array.isArray(cart)) {
+                cart = {}; 
+            }
+            } else {
+            cart = {}; 
+            }
 
-// Pievieno iezīmes kartē
-markers.forEach(marker => {
-    if (marker.coords && Array.isArray(marker.coords) && marker.coords.length === 2) {
-        L.marker(marker.coords)
-            .addTo(map)
-            .bindPopup(`<b>${marker.title}</b><br>${marker.description}`);
-    } else {
-        console.error("Kļūda: Nepareizas koordinātas iezīmei", marker);
-    }
-});
-
-(function() {
-    emailjs.init("4f-J8yPZkm1aH2Dvw"); // Replace with your EmailJS User ID
-})();
-
-// Kontaktformas loģika
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const email = e.target.email.value;
-    const message = e.target.message.value;
-
-    if (email && message) {
-        emailjs.send("service_2pf4207", "template_6ln7h5t", {
-            user_email: email,
-            user_message: message
-        }).then(response => {
-            alert("Ziņa veiksmīgi nosūtīta! Paldies par saziņu.");
-            contactForm.reset();
-        }).catch(error => {
-            alert("Radās kļūda. Lūdzu, mēģiniet vēlreiz.");
-            console.error("EmailJS kļūda:", error);
-        });
-    } else {
-        alert("Lūdzu, aizpildiet visus laukus.");
-    }
-});
-
-
-// Smooth Scroll for Menu Links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Saraksts ar pieejamajām banner bildēm
-    const banners = [
-        "Banner.JPG",
-        "Banner2.JPG",
-        "Banner3.JPG",
-        "Banner4.JPG",
-        "Banner5.JPG"
-    ];
-
-    // Funkcija, kas izvēlas nejaušu banner attēlu
-    function setRandomBanner() {
-        const randomIndex = Math.floor(Math.random() * banners.length);
-        const bannerElements = document.querySelectorAll('.banner');
-
-        if (bannerElements.length > 0) {
-            bannerElements[0].src = banners[randomIndex];
+            if (storedTotalPrice) {
+            totalPrice = parseFloat(storedTotalPrice) || 0; 
+            } else {
+            totalPrice = 0;
+            }
+        } catch (error) {
+            console.error("Kļūda, lasot localStorage:", error);
+            cart = {};
+            totalPrice = 0;
         }
-    }
 
-    // Izsauc funkciju, lai nomainītu banner attēlu
-    setRandomBanner();
-});
+        updateCartDisplay();
+        }
+
+        function addToCart(productName, productPrice) {
+        if (cart[productName]) {
+            cart[productName].quantity += 1;
+        } else {
+            cart[productName] = { price: productPrice, quantity: 1 };
+        }
+
+        totalPrice += productPrice;
+
+        saveCartToLocalStorage();
+
+        updateCartDisplay();
+        }
+
+        function removeFromCart(productName) {
+        if (cart[productName]) {
+            totalPrice -= cart[productName].price * cart[productName].quantity;
+
+            delete cart[productName];
+
+            saveCartToLocalStorage();
+
+            updateCartDisplay();
+        }
+        }
+
+        function updateCartDisplay() {
+        const cartItemsElement = document.getElementById('cart-items');
+        const totalPriceElement = document.getElementById('total-price');
+        cartItemsElement.innerHTML = '';
+
+        const validCart = Object.entries(cart).reduce((acc, [key, value]) => {
+            if (value && value.quantity > 0 && value.price >= 0) {
+            acc[key] = value;
+            }
+            return acc;
+        }, {});
+
+        cart = validCart;
+        saveCartToLocalStorage();
+
+        var string_cart = "";
+        for (const productName in cart) {
+            if (cart.hasOwnProperty(productName)) { 
+            const item = cart[productName];
+            const listItem = document.createElement('p');
+            listItem.textContent = `${item.quantity}x ${productName} - ${(item.price * item.quantity).toFixed(2)} €    `;
+
+            string_cart += `${item.quantity}x ${productName} - ${(item.price * item.quantity).toFixed(2)} € \n`;
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Noņemt';
+            removeButton.onclick = () => removeFromCart(productName);
+            listItem.appendChild(removeButton);
+
+            cartItemsElement.appendChild(listItem);
+            }
+        }
+
+        // const temp = document.getElementById('cart-items');
+
+        cartItemsElement.value = string_cart;
+
+        totalPriceElement.textContent = totalPrice.toFixed(2);
+        totalPriceElement.value = 'total: ' + totalPrice.toFixed(2);
+        }
+
+        function saveCartToLocalStorage() {
+        try {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('totalPrice', totalPrice.toFixed(2));
+        } catch (error) {
+            console.error("Kļūda, saglabājot localStorage:", error);
+        }
+        }
+
+        initializeCart();
+
+
+        function openCart() {
+        document.getElementById("cart-modal").style.display = "flex";
+        }
+
+        function closeCart() {
+        document.getElementById("cart-modal").style.display = "none";
+        }
+
