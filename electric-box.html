@@ -16,14 +16,14 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.html">
+            <a href="./">
                 <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Sākums</a></li>
-                <li><a href="products.html">Katalogs</a></li>
+                <li><a href="./">Sākums</a></li>
+                <li><a href="./products">Katalogs</a></li>
                 <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
             </ul>
         </nav>
@@ -33,20 +33,10 @@
         <div class="product-about-box">
             <img src="ELEK1.png" alt="Elektrības-Kaste">
             <div class="product-details">
-                <h1>Elektrības Kaste</h1>
-                <p>Konteiners, kas atdarina elektrisko kasti, bet nav hermētisks! Stiprināts uz magnētiem. Iekšā perfekti ielien Filmiņas Konteiners. Paredzēts slēpšanai urbānā teritorijā.</p>
-                <p class="price" style="font-size: 40px;">€3.00</p><br>
-                <select id="productCategory" name="productCategory">
-                    <option value="">-- Izvēlies Veidu --</option>
-                    <option value="magnetisks">Magnētisks</option>
-                    <option value="bez">Bez stiprinājumiem</option>
-                </select>
-                <div class="type" data-category="magnetisks">
-                    <button class="btn" onclick="addToCart('Elektrības Kaste (Magnētiska)', 3.00); openCart()">Pievienot Grozam</button>
-                </div>
-                <div class="type" data-category="bez">
-                    <button class="btn" onclick="addToCart('Elektrības Kaste (Bez stiprinājumiem)', 3.00); openCart()">Pievienot Grozam</button>
-                </div>
+                <h1>Elektriskā Sadales Kārba</h1>
+                <p>Konteiners, kas ir elektriskā sadales kārba, bet nav hermētisks! Stiprināts ar skrūvēm. Iekšā perfekti ielien Filmiņas Konteiners. Paredzēts slēpšanai urbānā teritorijā.</p>
+                <p class="price" style="font-size: 40px;">€1.50</p><br>
+                <button class="btn" onclick="addToCart('Elektriskā Sadales Kārba', 1.50); openCart()">Pievienot Grozam</button>
             </div>
         </div>
     </section>
@@ -59,16 +49,10 @@
           <p>Summa: €<span id="total-price">0.00</span></p>
           <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
           <br>
-          <div class="checkout">
-            <script async
-                src="https://js.stripe.com/v3/buy-button.js">
-            </script>
-            <stripe-buy-button
-                buy-button-id="buy_btn_1RgQkZE0LReUgNOJ5ulQY6p7"
-                publishable-key="pk_live_51RgPRAE0LReUgNOJ8hIBZz8rfJdnwVsDCzXycACpVgfHzyP7RKuAf45TWy9VvWdDJic62EE1sVjKgvtO9dHBA3d400LCc1x1H5"
-            >
-            </stripe-buy-button>
-          </div>
+          <br>
+          <a href="./order" class="buy-now-btn">Veikt Pasūtījumu</a>
+          <br>
+          <br>
         </div>
     </div>
 
@@ -76,23 +60,6 @@
         <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
         <p>E-Pasts: info@geostore.lv</p>
     </footer>
-    <script>
-
-        const productCategory = document.getElementById('productCategory');
-        const products = document.querySelectorAll('.type');
-
-        productCategory.addEventListener('change', function() {
-            const selectedCategory = this.value;
-            products.forEach(product => {
-                if (selectedCategory === 'all' || product.getAttribute('data-category') === selectedCategory) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
-        });
-        
-    </script>
     <script src="script.js"></script>
 </body>
 </html>

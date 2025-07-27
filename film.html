@@ -16,14 +16,14 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.html">
+            <a href="./">
                 <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Sākums</a></li>
-                <li><a href="products.html">Katalogs</a></li>
+                <li><a href="./">Sākums</a></li>
+                <li><a href="./products">Katalogs</a></li>
                 <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
             </ul>
         </nav>
@@ -49,16 +49,10 @@
           <p>Summa: €<span id="total-price">0.00</span></p>
           <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
           <br>
-          <div class="checkout">
-            <script async
-                src="https://js.stripe.com/v3/buy-button.js">
-            </script>
-            <stripe-buy-button
-                buy-button-id="buy_btn_1RgQkZE0LReUgNOJ5ulQY6p7"
-                publishable-key="pk_live_51RgPRAE0LReUgNOJ8hIBZz8rfJdnwVsDCzXycACpVgfHzyP7RKuAf45TWy9VvWdDJic62EE1sVjKgvtO9dHBA3d400LCc1x1H5"
-            >
-            </stripe-buy-button>
-          </div>
+          <br>
+          <a href="./order" class="buy-now-btn">Veikt Pasūtījumu</a>
+          <br>
+          <br>
         </div>
     </div>
     <footer>

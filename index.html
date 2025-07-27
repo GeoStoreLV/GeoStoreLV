@@ -12,17 +12,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,397;1,397&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <meta name="google-site-verification" content="5-jfAFSJuaWYsv2anvVUyR5K4euCCkETAO_sLaNL8ow" />
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="index.html">
+            <a href="./">
                 <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
             </a>
         </div>
         <nav>
             <ul>
-                <li><a href="products.html">Katalogs</a></li>
+                <li><a href="./products">Katalogs</a></li>
                 <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
             </ul>
         </nav>
@@ -49,10 +50,10 @@
             </div>
             
             <div class="featured_product">
-                <img src="BURIS1.png" alt="Putnu-Būris">
-                <h3><a href="buris.html">Putnu Būris</a></h3>
-                <p>€10.00</p>
-                <button class="add-cart-btn" onclick="addToCart('Putnu Būris', 10.00); openCart()">Pievienot Grozam</button>
+                <img src="LOGLV.png" alt="Putnu-Būris">
+                <h3><a href="log-lv.html">Viesu Grāmata (LV)</a></h3>
+                <p>€0.50</p>
+                <button class="add-cart-btn" onclick="addToCart('Viesu Grāmata (LV)', 0.50); openCart()">Pievienot Grozam</button>
             </div>
 
             <div class="featured_product">
@@ -82,16 +83,10 @@
           <p>Summa: €<span id="total-price">0.00</span></p>
           <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
           <br>
-          <div class="checkout">
-            <script async
-                src="https://js.stripe.com/v3/buy-button.js">
-            </script>
-            <stripe-buy-button
-                buy-button-id="buy_btn_1RgQkZE0LReUgNOJ5ulQY6p7"
-                publishable-key="pk_live_51RgPRAE0LReUgNOJ8hIBZz8rfJdnwVsDCzXycACpVgfHzyP7RKuAf45TWy9VvWdDJic62EE1sVjKgvtO9dHBA3d400LCc1x1H5"
-            >
-            </stripe-buy-button>
-          </div>
+          <br>
+          <a href="./order" class="buy-now-btn">Veikt Pasūtījumu</a>
+          <br>
+          <br>
         </div>
     </div>
 
