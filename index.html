@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GeoStore.LV</title>
-    <meta name="description" content="GeoStore.LV – Latvijas Geocaching veikals, Geokešings Latvijā, Slēpņošana, Geoslēpņi, GPS spēles, Geokešu konteineri, Geokešu aksesuāri, Geocaching konteineri, Geocaching dāvanas, Geocaching Latvija karte, Piedzīvojumi dabā. GeoStore.LV - Latvia's Geocaching store, Geocaching Latvia, GPS treasure hunt, cache containers, nano/micro caches, geocaching logbooks, magnets, stickers, geocoins, travel bugs, outdoor GPS games, geocaching gifts and gear. GeoStore.LV – Geokešingo parduotuvė Latvijoje, Geocaching Lietuva, Slėptuvių paieška, GPS žaidimai, Geokešingo konteineriai, Mikro ir nano konteineriai, Lipdukai, Geocoin'ai, Pradžios rinkiniai, Nuotykiai gamtoje. GeoStore.LV – Läti Geopeituse pood, Geopeitus Eestis, Aardejaht, Geopeituse konteinerid, Mikro- ja nanokonteinerid, Geopeituse tööriistad, Logiraamatud, GPS mängud, Geopeituse kaardid, Kingitused geopeituritele.">
+    <meta name="description" content="GeoStore.LV – Latvijas Geocaching veikals, ĢeoVeikals, GeoStore, Geoshop.lt, GeoShop, Geocaching, Geokešings Latvijā, Slēpņošana, Geoslēpņi, GPS spēles, Geokešu konteineri, Geokešu aksesuāri, Geocaching konteineri, Geocaching dāvanas, Geocaching Latvija karte, Piedzīvojumi dabā. GeoStore.LV - Latvia's Geocaching store, Geocaching Latvia, GPS treasure hunt, cache containers, nano/micro caches, geocaching logbooks, magnets, stickers, geocoins, travel bugs, outdoor GPS games, geocaching gifts and gear. GeoStore.LV – Geokešingo parduotuvė Latvijoje, Geocaching Lietuva, Slėptuvių paieška, GPS žaidimai, Geokešingo konteineriai, Mikro ir nano konteineriai, Lipdukai, Geocoin'ai, Pradžios rinkiniai, Nuotykiai gamtoje. GeoStore.LV – Läti Geopeituse pood, Geopeitus Eestis, Aardejaht, Geopeituse konteinerid, Mikro- ja nanokonteinerid, Geopeituse tööriistad, Logiraamatud, GPS mängud, Geopeituse kaardid, Kingitused geopeituritele.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +15,38 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
     <meta name="google-site-verification" content="5-jfAFSJuaWYsv2anvVUyR5K4euCCkETAO_sLaNL8ow" />
 </head>
+<style>
+  .dictionary-entry {
+    border: 1px solid #ccc;
+    padding: 16px;
+    max-width: 700px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    margin: 16px auto;
+    margin-top: -8px;
+    text-align: center; /* Centrē viss saturs */
+  }
+
+  .dictionary-word {
+    font-family: Georgia, 'Times New Roman', Times, serif; /* Līdzīgs, bet elegantāks */
+    font-weight: bold;
+    font-size: 1.8em;
+    margin-bottom: 4px;
+  }
+
+  .dictionary-pos {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 8px;
+  }
+
+  .dictionary-definition {
+    font-size: 1em;
+    color: #333;
+    line-height: 1.5;
+  }
+</style>
 <body>
     <header>
         <div class="logo">
@@ -31,8 +63,18 @@
     </header>
 
     <section id="about" class="section about">
-        <h2>Par Mums</h2>
-        <p>Mēs esam slēpņotāju grupa, kas vēlas palīdzēt tādiem kā mums izveidot savus slēpņus. Mums ir plašs klāsts ar daudz un dažādiem augstākās kvalitātes slēpņiem un citām slēpņošanai noderīgām lietām.</p>
+        <div class="dictionary-entry">
+            <div class="dictionary-word">Geocaching | <i style="opacity: 50%;">Slēpņošana</i></div>
+            <div class="dictionary-pos">lietvārds</div>
+            <div class="dictionary-definition">
+                Geocaching (Slēpņošana) ir nodarbe brīvā dabā ar GPS vai citiem navigācijas paņēmieniem, kuras mērķis ir visā pasaulē izvietot un meklēt konteinerus — ģeoslēpņus.
+            </div>
+        </div>
+
+
+        <h1>Par Mums</h1>
+        <p>GeoStore.LV ir specializēts Geocaching veikals Latvijā, radīts ar mērķi atbalstīt un iedvesmot gan pieredzējušus kešotājus, gan tos, kas tikai sper pirmos soļus aizraujošajā slēpņošanas pasaulē.</p>
+        <p>Mēs ticam, ka piedzīvojums sākas jau ar sagatavošanos, tāpēc piedāvājam pārbaudītus un kvalitatīvus Geocaching piederumus – no mikro konteineriem un logbookiem līdz sākuma komplektiem un aksesuāriem.</p>
     </section>
 
     <section id="panorama" class="panorama">
