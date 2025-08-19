@@ -1,203 +1,120 @@
 <!-- Coded by Toms Edvards Vucens (Team GeoStore.LV)-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <link rel="icon" type="image/x-icon" href="icon.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GeoStore.LV - Katalogs</title>
-    <meta name="description" content="GeoStore.LV – Latvijas Geocaching veikals.">    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,397;1,397&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produkti — GeoStore.LV</title>
+  <meta name="description" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="icon.png">
+  <meta property="og:title" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta property="og:description" content="Viss geokešeriem: konteineri, logbooki, magnēti, dāvanas. Pasūti geostore.lv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geostore.lv/">
+  <meta property="og:image" content="https://geostore.lv/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function toggleNav(){ document.querySelector('.nav').classList.toggle('open'); }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="./">
-                <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./">Sākums</a></li>
-                <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="catalogue" class="section catalogue">
-        <h2>Produktu Katalogs</h2>
-        
-        <label for="productCategory">Izvēlies Kategoriju:</label>
-        <select id="productCategory" name="productCategory">
-            <option value="all">Visi Produkti</option>
-            <option value="containers">Konteineri</option>
-            <option value="logbooks">Viesu Grāmatas (Logbooki)</option>
-            <option value="accessories">Aksesuāri</option>
-        </select>
-
-        <div class="product-grid">
-            <div class="product" data-category="containers">
-                <img src="PET1.png" alt="PET-Caurspīdīgs">
-                <h3><a href="./pet">PET Sagatave (Caurspīdīga)</a></h3>
-                <p>€0.40</p>
-                <button class="add-cart-btn" onclick="addToCart('PET Sagatave (Caurspīdīga)', 0.40); openCart()">Pievienot Grozam</button>
-            </div>
-            
-            <div class="product" data-category="containers">
-                <img src="PETB.png" alt="PET-Melns">
-                <h3><a href="./pet-melns">PET Sagatave (Melna)</a></h3>
-                <p>€0.40</p>
-                <button class="add-cart-btn" onclick="addToCart('PET Sagatave (Melna)', 0.40); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="logbooks">
-                <img src="LOGLV.png" alt="Logbook-LV">
-                <h3><a href="./log-lv">Viesu Grāmata (LV)</a></h3>
-                <p>€0.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Viesu Grāmata (LV)', 0.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="logbooks">
-                <img src="LOG.png" alt="Logbook">
-                <h3><a href="./log">Viesu Grāmata</a></h3>
-                <p>€0.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Viesu Grāmata', 0.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="BISON1.png" alt="Bison-Tube">
-                <h3><a href="./bison">"Bison Tube" (Sudraba)</a></h3>
-                <p>€1.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Bison Mikro Konteiners (Sudraba)', 1.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="BISON1B.png" alt="Bison-Tube-Melns">
-                <h3><a href="./bison-melns">"Bison Tube" (Melns)</a></h3>
-                <p>€1.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Bison Mikro Konteiners (Melns)', 1.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="FILM1.png" alt="Filmiņas-Konteiners">
-                <h3><a href="./film">Filmiņas Konteiners</a></h3>
-                <p>€1.00</p>
-                <button class="add-cart-btn" onclick="addToCart('Filmiņas Konteiners', 1.00); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="ELEK1.png" alt="Elektrības-Kaste">
-                <h3><a href="./electric-box">Elektriskā Sadales Kārba</a></h3>
-                <p>€1.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Elektriskā Sadales Kārba', 1.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="accessories">
-                <img src="KOKS1.png" alt="Koka-Kamoflāža">
-                <h3><a href="./koks">PET Koka Kamoflāža</a></h3>
-                <p>€3.00</p>
-                <button class="add-cart-btn" onclick="addToCart('PET Koka Kamoflāža', 3.00); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="LOCK&LOCK.png" alt="Lock&Lock">
-                <h3><a href="./lock&lock">300ml Lock&Lock Kārba</a></h3>
-                <p>€1.75</p>
-                <button class="add-cart-btn" onclick="addToCart('300ml Lock&Lock Kārba', 1.75); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="logbooks">
-                <img src="LOG-SPIRAL.png" alt="Logbook-Spiral">
-                <h3><a href="./log-spiral">Viesu Grāmata ar Spirāli</a></h3>
-                <p>€1.75</p>
-                <button class="add-cart-btn" onclick="addToCart('Viesu Grāmata ar Spirāli', 1.75); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="MUNIC.png" alt="Munīcijas-Kaste">
-                <h3><a href="./municijas-kaste">Munīcijas Kaste</a></h3>
-                <p>€10.00</p>
-                <button class="add-cart-btn" onclick="addToCart('Munīcijas Kaste', 10.00); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="containers">
-                <img src="1,5ML.png" alt="1.5ml-Mikro">
-                <h3><a href="./1.5ml-micro">1.5ml Mikro Konteiners</a></h3>
-                <p>€0.20</p>
-                <button class="add-cart-btn" onclick="addToCart('1.5ml Mikro Konteiners', 0.20); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="accessories">
-                <img src="MAG5x2.png" alt="Magnēts-5x2">
-                <h3><a href="./magnet-5x2">Diska Magnēts 5x2mm</a></h3>
-                <p>€0.40</p>
-                <button class="add-cart-btn" onclick="addToCart('Diska Magnēts 5x2mm', 0.40); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="accessories">
-                <img src="MAG10x2.png" alt="Magnēts-10x2">
-                <h3><a href="./magnet-10x2">Diska Magnēts 10x2mm</a></h3>
-                <p>€0.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Diska Magnēts 10x2mm', 0.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="accessories">
-                <img src="KRONSHTEIN.png" alt="PET-Turētājs">
-                <h3><a href="./pet-holder">PET Sagataves Turētājs</a></h3>
-                <p>€0.30</p>
-                <button class="add-cart-btn" onclick="addToCart('PET Sagataves Turētājs', 0.30); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="product" data-category="accessories">
-                <img src="ZĪMULIS.png" alt="Zīmulis">
-                <h3><a href="./pencil">Zīmulis</a></h3>
-                <p>€0.15</p>
-                <button class="add-cart-btn" onclick="addToCart('Zīmulis', 0.15); openCart()">Pievienot Grozam</button>
-            </div>
-        </div>
-    </section>
-
-    <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-          <h3>Jūsu Grozs</h3>
-          <p id="cart-items"></p>
-          <br>
-          <p>Summa: €<span id="total-price">0.00</span></p>
-          <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
-          <br>
-          <br>
-          <a href="./order" class="buy-now-btn">Veikt Pasūtījumu</a>
-          <br>
-          <br>
-        </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./"><img class="brand-logo" src="icon.png" alt="" aria-hidden="true"><span>GeoStore.<strong>LV</strong></span></a>
+      <button class="nav-toggle" aria-label="Atvērt navigāciju" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Galvenā navigācija">
+        <a href="./">Sākums</a>
+        <a href="./products.html">Produkti</a>
+      </nav>
+      <a href="javascript:void(0)" class="cart-icon" onclick="openCart()">
+        <img src="CART.png" style="width:32px;height:32px;"> <span id="cart-count">0</span>
+      </a>
     </div>
+  </header>
 
-    <footer>
-        <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
-        <p>E-Pasts: info@geostore.lv</p>
-    </footer>
+  <main class="section">
+    <div class="container">
+      <h1>Produktu katalogs</h1>
+      <div class="toolbar">
+        <input type="text" id="q" class="input" placeholder="Meklēt produktus..." oninput="filterProducts()">
+        <select id="cat" class="input" onchange="filterProducts()">
+          <option value="all">Visas kategorijas</option>
+          <option value="pet">PET & mikro</option>
+          <option value="logbooks">Logbooki</option>
+          <option value="boxes">Kārbas un kastes</option>
+          <option value="magnets">Magnēti</option>
+          <option value="masking">Maskēšanās</option>
+          <option value="accessories">Piederumi</option>
+        </select>
+      </div>
+
+
+      <div class="grid cards-3" itemscope itemtype="https://schema.org/ItemList">
+        <article class="card product-card" data-cat="pet" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="PET-Caurspīdīgs" itemprop="image" src="PET1.png"/><h3 itemprop="name">PET Sagatave (Caurspīdīga)</h3><p class="muted" itemprop="description">PET sagatave ir izturīgs un kompakts konteiners, kamdēļ tas ir viens no populārākajiem pasaulē.</p><h2>€0.40</h2><a class="btn btn-secondary" href="./pet">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('PET Sagatave (Caurspīdīga)', 0.40); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="pet" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="PET-Melns" itemprop="image" src="PETB.png"/><h3 itemprop="name">PET Sagatave (Melna)</h3><p class="muted" itemprop="description">PET sagatave ir izturīgs un kompakts konteiners, kamdēļ tas ir viens no populārākajiem pasaulē.</p><h2>€0.40</h2><a class="btn btn-secondary" href="./pet-melns">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('PET Sagatave (Melna)', 0.40); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="logbooks" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Logbook-LV" itemprop="image" src="LOGLV.png"/><h3 itemprop="name">Viesu Grāmata (LV)</h3><p class="muted" itemprop="description">Standarta slēpņu logbooks, pirmo reizi Latviešu valodā ar tematiku. 70 lapaspuses ar vismaz 135 ierakstiem.</p><h2>€0.50</h2><a class="btn btn-secondary" href="./log-lv">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Viesu Grāmata (LV)', 0.50); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="logbooks" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Logbook" itemprop="image" src="LOG.png"/><h3 itemprop="name">Viesu Grāmata</h3><p class="muted" itemprop="description">Standarta geocaching slēpņu viesu grāmata, jeb logbook. 70 lapaspuses ar vismaz 135 ierakstiem.</p><h2>€0.50</h2><a class="btn btn-secondary" href="./log">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Viesu Grāmata', 0.50); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="pet" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Bison-Tube" itemprop="image" src="BISON1.png"/><h3 itemprop="name">"Bison Tube" (Sudraba)</h3><p class="muted" itemprop="description">Bison Tube ir kompakts alumīnija mikro konteiners, kas nodrošina ūdensizturību. </p><h2>€1.50</h2><a class="btn btn-secondary" href="./bison">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Bison Mikro Konteiners (Sudraba)', 1.50); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="pet" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Bison-Tube-Melns" itemprop="image" src="BISON1B.png"/><h3 itemprop="name">"Bison Tube" (Melns)</h3><p class="muted" itemprop="description">Bison Tube ir kompakts alumīnija mikro konteiners, kas nodrošina ūdensizturību. </p><h2>€1.50</h2><a class="btn btn-secondary" href="./bison-melns">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Bison Mikro Konteiners (Melns)', 1.50); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="pet" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Filmiņas-Konteiners" itemprop="image" src="FILM1.png"/><h3 itemprop="name">Filmiņas Konteiners</h3><p class="muted" itemprop="description">Filmiņas konteiners ir viens no visklasiskākajiem un uzticamākajiem geocaching konteineriem. </p><h2>€1.00</h2><a class="btn btn-secondary" href="./film">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Filmiņas Konteiners', 1.00); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="masking" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Elektrības-Kaste" itemprop="image" src="ELEK1.png"/><h3 itemprop="name">Elektriskā Sadales Kārba</h3><p class="muted" itemprop="description">Elektrības sadales kārba ir radošs un efektīvs veids, kā paslēpt slēpni pilsētas vidē.</p><h2>€1.50</h2><a class="btn btn-secondary" href="./electic-box">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Elektriskā Sadales Kārba', 1.50); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="masking" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Koka-Kamoflāža" itemprop="image" src="KOKS1.png"/><h3 itemprop="name">PET Koka Kamoflāža</h3><p class="muted" itemprop="description">Pašdarināta PET koka kamoflāža ir izcili piemērota meža un dabas teritoriju slēpņiem. </p><h2>€3.00</h2><a class="btn btn-secondary" href="./koks">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('PET Koka Kamoflāža', 3.00); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="boxes" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Lock&amp;Lock" itemprop="image" src="LOCK&amp;LOCK.png"/><h3 itemprop="name">300ml Lock&amp;Lock Kārba</h3><p class="muted" itemprop="description">Lock&Lock 300ml kārba ir hermētiska, kas garantē saturu sausu pat mainīgos laikapstākļos.</p><h2>€1.75</h2><a class="btn btn-secondary" href="./lock&lock">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('300ml Lock&amp;Lock Kārba', 1.75); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="logbooks" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Logbook-Spiral" itemprop="image" src="LOG-SPIRAL.png"/><h3 itemprop="name">Viesu Grāmata ar Spirāli</h3><p class="muted" itemprop="description">Viesu Grāmata ar Spirāli. 60 lapaspuses. Paradzēta "small" slēpņiem.</p><h2>€1.75</h2><a class="btn btn-secondary" href="./log-spiral">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Viesu Grāmata ar Spirāli', 1.75); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="boxes" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Munīcijas-Kaste" itemprop="image" src="MUNIC.png"/><h3 itemprop="name">Munīcijas Kaste</h3><p class="muted" itemprop="description">Munīcijas kaste ir metāla konteiners ar hermētisku aizvēršanas mehānismu.</p><h2>€10.00</h2><a class="btn btn-secondary" href="./municijas-kaste">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Munīcijas Kaste', 10.00); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="pet" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="1.5ml-Mikro" itemprop="image" src="1,5ML.png"/><h3 itemprop="name">1.5ml Mikro Konteiners</h3><p class="muted" itemprop="description">1.5ml mikro konteiners, kas izstrādāts īpaši diskrētai "mikro" slēpņu paslēpšanai.</p><h2>€0.20</h2><a class="btn btn-secondary" href="1.5ml-micro">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('1.5ml Mikro Konteiners', 0.20); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="magnets" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Magnēts-5x2" itemprop="image" src="MAG5x2.png"/><h3 itemprop="name">Diska Magnēts 5x2mm</h3><p class="muted" itemprop="description">Neodīma diska magnēti ir ideāls risinājums mikro konteineru piestiprināšanai pie metāla virsmām.</p><h2>€0.40</h2><a class="btn btn-secondary" href="magnet-5x2">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Diska Magnēts 5x2mm', 0.40); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="magnets" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Magnēts-10x2" itemprop="image" src="MAG10x2.png"/><h3 itemprop="name">Diska Magnēts 10x2mm</h3><p class="muted" itemprop="description">Neodīma diska magnēti ir ideāls risinājums mikro konteineru piestiprināšanai pie metāla virsmām.</p><h2>€0.50</h2><a class="btn btn-secondary" href="magnet-10x2">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Diska Magnēts 10x2mm', 0.50); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="accessories" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="PET-Turētājs" itemprop="image" src="KRONSHTEIN.png"/><h3 itemprop="name">PET Sagataves Turētājs</h3><p class="muted" itemprop="description">PET sagataves stiprinājums ir izstrādāts, lai nodrošinātu konteineru piestiprināšanu pie objektiem.</p><h2>€0.30</h2><a class="btn btn-secondary" href="./pet-holder">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('PET Sagataves Turētājs', 0.30); openCart()">Pievienot Grozam</button></article>
+        <article class="card product-card" data-cat="accessories" itemprop="itemListElement" itemscope="True" itemtype="https://schema.org/Product"><img alt="Zīmulis" itemprop="image" src="ZĪMULIS.png"/><h3 itemprop="name">Zīmulis</h3><p class="muted" itemprop="description">Zīmulis. Perfekti der PET sagatavēm un citiem konteineriem.</p><h2>€0.15</h2><a class="btn btn-secondary" href="./pencil">Uzzināt vairāk</a><button class="btn btn-primary" onclick="addToCart('Zīmulis', 0.15); openCart()">Pievienot Grozam</button></article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="kontakti">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="GEOSTORE.LV.png" alt="GeoStore.LV Logo">
+        <div>
+          <strong>GeoStore.LV</strong><br>
+          <a href="mailto:info@geostore.lv">info@geostore.lv</a>
+        </div>
+      </div>
+      <div class="muted small">© <span id="year"></span> GeoStore.LV • Izstrādāja Toms Edvards Vucens</div>
+    </div>
+  </footer>
+
+      <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+          <h2>Jūsu Grozs</h2>
+          <p id="cart-items"></p>
+          <h3>Summa: €<span id="total-price">0.00</span></h3><br>
+          <button class="btn btn-secondary" onclick="closeCart()">Aizvērt</button>
+          <a href="./order" class="btn btn-primary">Veikt Pasūtījumu</a>
+        </div>
+      </div>
+
+  <script src="script.js"></script>
 
     <script>
-
-        const productCategory = document.getElementById('productCategory');
-        const products = document.querySelectorAll('.product');
-
-        productCategory.addEventListener('change', function() {
-            const selectedCategory = this.value;
-            products.forEach(product => {
-                if (selectedCategory === 'all' || product.getAttribute('data-category') === selectedCategory) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
+      function filterProducts() {
+        const q = document.getElementById('q') ? document.getElementById('q').value.toLowerCase().trim() : "";
+        const cat = document.getElementById('cat').value;
+        document.querySelectorAll('.grid .product-card').forEach(card => {
+          const matchText = (card.innerText || '').toLowerCase();
+          const inCat = (cat === 'all' || card.dataset.cat === cat);
+          card.style.display = (matchText.includes(q) && inCat) ? '' : 'none';
         });
-        
+      }
     </script>
-    <script src="script.js"></script>
+
+  
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

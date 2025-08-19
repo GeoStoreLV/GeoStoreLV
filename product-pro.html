@@ -1,11 +1,10 @@
-<!-- Coded by Toms Edvards Vucens (Team GeoStore.LV)-->
 <!DOCTYPE html>
 <html lang="lv">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GeoStore.LV — Latvijas Geocaching veikals</title>
-  <meta name="description" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1.5ml Mikro konteiners — GeoStore.LV</title>
+  <meta name="description" content="GeoStore.LV — pirmais specializētais Geocaching veikals Latvijā. Konteineri, PET sagataves, logbooki, magnēti, dāvanas un viss slēpņu veidošanai. Piegāde visā Baltijā.">
   <meta name="robots" content="index,follow">
   <link rel="icon" href="icon.png">
   <meta property="og:title" content="GeoStore.LV — Latvijas Geocaching veikals">
@@ -16,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script>
+  <link rel="stylesheet" href="styles-pro.css">
+    <script>
     function toggleNav(){ document.querySelector('.nav').classList.toggle('open'); }
   </script>
 </head>
@@ -31,57 +30,41 @@
       <nav class="nav" aria-label="Galvenā navigācija">
         <a href="./">Sākums</a>
         <a href="./products.html">Produkti</a>
+        <a href="#par">Par mums</a>
+        <a href="#kontakti">Kontakti</a>
       </nav>
-      <a href="javascript:void(0)" class="cart-icon" onclick="openCart()">
-        <img src="CART.png" style="width:32px;height:32px;"> <span id="cart-count">0</span>
-      </a>
     </div>
   </header>
 
-    <section id="product-about">
+  <main class="section">
+      <section id="product-about">
         <div class="product-about-box">
-            <img src="PETB.png" alt="PET-Melns">
+            <img src="PET1.png" alt="PET-Caurspīdīgs">
             <div class="product-details">
-                <h1>PET Sagatave (Melna)</h1>
+                <h1>PET Sagatave (Caurspīdīga)</h1>
                 <p>
                     PET sagatave ir viens no populārākajiem geocaching konteineru veidiem pasaulē, pateicoties savai izturībai un ērtajam izmēram. 
                 </p>
                 <p>
-                    Melnā PET sagatave nodrošina maksimālu maskēšanos pilsētvidē vai dabā. 
                     Šis konteiners ir pietiekami kompakts, lai to paslēptu gandrīz jebkur, bet vienlaikus tajā ir vieta logbookam un pat nelieliem “trade items”.
                 </p>
                 <p class="price" style="font-size: 40px;">€0.40</p><br>
-                <button class="btn btn-primary" onclick="addToCart('PET Sagatave (Melna)', 0.40); openCart()">Pievienot Grozam</button>
+                <button class="btn-primary" onclick="addToCart('PET Sagatave (Caurspīdīga)', 0.40); openCart()">Pievienot Grozam</button>
             </div>
         </div>
     </section>
-    
+  </main>
+
   <footer class="site-footer" id="kontakti">
     <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="GEOSTORE.LV.png" alt="GeoStore.LV Logo">
-        <div>
-          <strong>GeoStore.LV</strong><br>
-          <a href="mailto:info@geostore.lv">info@geostore.lv</a>
-        </div>
+      <div>
+        <strong>GeoStore.LV</strong><br>
+        <a href="mailto:info@geostore.lv">info@geostore.lv</a><br>
+        <a href="https://geostore.lv" rel="noopener">geostore.lv</a>
       </div>
-      <div class="muted small">© <span id="year"></span> GeoStore.LV • Izstrādāja Toms Edvards Vucens</div>
+      <div class="muted small">© <span id="year"></span> GeoStore.LV • Izgatavots ar mīlestību pret slēpņošanu</div>
     </div>
   </footer>
-
-      <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-          <h2>Jūsu Grozs</h2>
-          <p id="cart-items"></p>
-          <h3>Summa: €<span id="total-price">0.00</span></h3><br>
-          <button class="btn btn-secondary" onclick="closeCart()">Aizvērt</button>
-          <a href="./order" class="btn btn-primary">Veikt Pasūtījumu</a>
-        </div>
-      </div>
-  
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-  <script src="script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -1,35 +1,42 @@
 <!-- Coded by Toms Edvards Vucens (Team GeoStore.LV)-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <link rel="icon" type="image/x-icon" href="icon.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GeoStore.LV - Magnēts 10x2mm</title>
-    <meta name="description" content="GeoStore.LV – Latvijas Geocaching veikals.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,397;1,397&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeoStore.LV — Latvijas Geocaching veikals</title>
+  <meta name="description" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="icon.png">
+  <meta property="og:title" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta property="og:description" content="Viss geokešeriem: konteineri, logbooki, magnēti, dāvanas. Pasūti geostore.lv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geostore.lv/">
+  <meta property="og:image" content="https://geostore.lv/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function toggleNav(){ document.querySelector('.nav').classList.toggle('open'); }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="./">
-                <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./">Sākums</a></li>
-                <li><a href="./products">Katalogs</a></li>
-                <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
-            </ul>
-        </nav>
-    </header>
-
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./"><img class="brand-logo" src="icon.png" alt="" aria-hidden="true"><span>GeoStore.<strong>LV</strong></span></a>
+      <button class="nav-toggle" aria-label="Atvērt navigāciju" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Galvenā navigācija">
+        <a href="./">Sākums</a>
+        <a href="./products.html">Produkti</a>
+      </nav>
+      <a href="javascript:void(0)" class="cart-icon" onclick="openCart()">
+        <img src="CART.png" style="width:32px;height:32px;"> <span id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
     <section id="product-about">
         <div class="product-about-box">
             <img src="MAG10x2.png" alt="magnet-10x2">
@@ -42,30 +49,37 @@
                     Tie nodrošina drošu fiksāciju pat nelielam konteineram spēcīga vēja vai vibrācijas apstākļos.
                 </p>
                 <p class="price" style="font-size: 40px;">€0.50</p><br>
-                <button class="add-cart-btn" onclick="addToCart('Diska Magnēts 10x2mm', 0.50); openCart()">Pievienot Grozam</button>
+                <button class="btn btn-primary" onclick="addToCart('Diska Magnēts 10x2mm', 0.50); openCart()">Pievienot Grozam</button>
             </div>
         </div>
     </section>
 
-    <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-          <h3>Jūsu Grozs</h3>
-          <p id="cart-items"></p>
-          <br>
-          <p>Summa: €<span id="total-price">0.00</span></p>
-          <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
-          <br>
-          <br>
-          <a href="./order" class="buy-now-btn">Veikt Pasūtījumu</a>
-          <br>
-          <br>
+  <footer class="site-footer" id="kontakti">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="GEOSTORE.LV.png" alt="GeoStore.LV Logo">
+        <div>
+          <strong>GeoStore.LV</strong><br>
+          <a href="mailto:info@geostore.lv">info@geostore.lv</a>
         </div>
+      </div>
+      <div class="muted small">© <span id="year"></span> GeoStore.LV • Izstrādāja Toms Edvards Vucens</div>
     </div>
+  </footer>
 
-    <footer>
-        <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
-        <p>E-Pasts: info@geostore.lv</p>
-    </footer>
-    <script src="script.js"></script>
+      <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+          <h2>Jūsu Grozs</h2>
+          <p id="cart-items"></p>
+          <h3>Summa: €<span id="total-price">0.00</span></h3><br>
+          <button class="btn btn-secondary" onclick="closeCart()">Aizvērt</button>
+          <a href="./order" class="btn btn-primary">Veikt Pasūtījumu</a>
+        </div>
+      </div>
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>

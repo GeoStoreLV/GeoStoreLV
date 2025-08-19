@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="lv">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jūsu Grozs — GeoStore.LV</title>
+    <link rel="stylesheet" href="styles-pro.css">
+    <script src="script.js" defer></script>
+    </head>
+    <body>
+    <header class="site-header">
+        <div class="container header-inner">
+        <a class="brand" href="./"><img src="icon.png" alt="" class="brand-logo">GeoStore.<strong>LV</strong></a>
+        <nav class="nav">
+            <a href="./">Sākums</a>
+            <a href="./products.html">Produkti</a>
+            <a href="./cart.html" class="cart-icon">
+            🛒 <span id="cart-count">0</span>
+            </a>
+        </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container narrow">
+        <h1>Jūsu Grozs</h1>
+        <div id="cart-container"></div>
+        <div style="margin-top:20px;">
+            <p id="cart-items"></p>
+            <h3>Summa: €<span id="total-price">0.00</span></h3>
+        </div>
+        <br>
+        <a href="./order.html" class="btn btn-primary">Veikt pasūtījumu</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+        <div><strong>GeoStore.LV</strong></div>
+        <div class="muted small">© <span id="year"></span> GeoStore.LV</div>
+        </div>
+    </footer>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    <script src="script.js"></script>
+</body>
+</html>

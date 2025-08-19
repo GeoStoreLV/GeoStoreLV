@@ -1,91 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <link rel="icon" type="image/x-icon" href="icon.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GeoStore.LV - Pasūtīt</title>
-    <meta name="description" content="GeoStore.LV – Latvijas Geocaching veikals.">    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,397;1,397&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeoStore.LV — Latvijas Geocaching veikals</title>
+  <meta name="description" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="icon.png">
+  <meta property="og:title" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta property="og:description" content="Viss geokešeriem: konteineri, logbooki, magnēti, dāvanas. Pasūti geostore.lv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geostore.lv/">
+  <meta property="og:image" content="https://geostore.lv/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="5-jfAFSJuaWYsv2anvVUyR5K4euCCkETAO_sLaNL8ow" />
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function toggleNav(){ document.querySelector('.nav').classList.toggle('open'); }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="./">
-                <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./">Sākums</a></li>
-                <li><a href="./products">Katalogs</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./"><img class="brand-logo" src="icon.png" alt="" aria-hidden="true"><span>GeoStore.<strong>LV</strong></span></a>
+      <button class="nav-toggle" aria-label="Atvērt navigāciju" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Galvenā navigācija">
+        <a href="./">Sākums</a>
+        <a href="./products.html">Produkti</a>
+      </nav>
+      <a href="javascript:void(0)" class="cart-icon" onclick="openCart()">
+        <img src="CART.png" style="width:32px;height:32px;"> <span id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
 
-    <section id="order" class="sectionOrder">
-        <div class="grid">
-            <div class="colonna">
-                <div class="container-pirma">
-                    <h2>Pasūtījuma veikšana</h2>
-                    <p class="orderinfo">Lai veiktu pasūtījumu, Jums ir nepieciešams aizpildīt informāciju, kas atrodas zemāk. Sūtīšanas izmaksas: Latvija - 3.99 - 4.99 €, Baltijas Valstis - 7,49 - 8,49 €. Pasūtījums tiks pārbaudīts un sakārtots 1-2 darba dienu laikā, pēc tam rēķins apmaksai tiks aizsūtīts Jums caur Ē-Pastu.</p>
-                </div>
-                <div class="container-pirma">
-                    <h2>Piegādes informācija</h2>
-                    <form id="orderForm">
-                        <div class="form-group">
-                            <input type="text" id="firstName" name="firstName" placeholder="Vārds" required>
-                        </div>
-            
-                        <div class="form-group">
-                            <input type="text" id="lastName" name="lastName"placeholder="Uzvārds" required><br>
-                        </div>
-            
-                        <div class="form-group">
-                            <select id="country" name="country" required>
-                                <option value="">-- Valsts --</option>
-                                <option value="latvia">Latvija</option>
-                                <option value="lithuania">Lietuva</option>
-                                <option value="estonia">Igaunija</option>
-                            </select><br>
-                        </div>
-            
-                        <div class="form-group">
-                            <select id="parcelBox" name="parcelBox"required>
-                                <option value="">-- Pakomāts --</option>
-                            </select><br>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="hidden" id="cart-items" name="cart-items" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="hidden" id="total-price" name="total-price" required>
-                        </div>
-            
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Ē-Pasts" required><br>
-                        </div>
-            
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Telefona Numurs" required><br>
-                        </div>
-                        <br>
-                        <button type="submit" class="btn">Iesniegt Pasūtījumu</button>
-                    </form>
-                </div>
+    <section class="section" id="order">
+        <div class="container narrow">
+            <div class="about-order">
+                <h1>Pasūtījuma veikšana</h1>
+                <p class="orderinfo">Lai veiktu pasūtījumu, Jums ir nepieciešams aizpildīt informāciju, kas atrodas zemāk. Sūtīšanas izmaksas: Latvija - 3.99 - 4.99 €, Baltijas Valstis - 7,49 - 8,49 €. Pasūtījums tiks pārbaudīts un sakārtots 1-2 darba dienu laikā, pēc tam rēķins apmaksai tiks aizsūtīts Jums caur Ē-Pastu.</p>
             </div>
+            <h2>Piegādes informācija</h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <input class="input-order" type="text" id="firstName" name="firstName" placeholder="Vārds" required>
+                </div>
+            
+                <div class="form-group">
+                    <input class="input-order" type="text" id="lastName" name="lastName"placeholder="Uzvārds" required>
+                </div>
+            
+                <div class="form-group">
+                    <select class="input-order" id="country" name="country" required>
+                        <option value="">-- Valsts --</option>
+                        <option value="latvia">Latvija</option>
+                        <option value="lithuania">Lietuva</option>
+                        <option value="estonia">Igaunija</option>
+                    </select>
+                </div>
+            
+                <div class="form-group">
+                    <select class="input-order" id="parcelBox" name="parcelBox"required>
+                        <option value="">-- Pakomāts --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="hidden" id="cart-items" name="cart-items" required>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" id="total-price" name="total-price" required>
+                </div>
+            
+                <div class="form-group">
+                    <input class="input-order" type="email" id="email" name="email" placeholder="Ē-Pasts" required>
+                </div>
+            
+                <div class="form-group">
+                    <input class="input-order" type="tel" id="phone" name="phone" placeholder="Telefona Numurs" required>
+                 </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Iesniegt Pasūtījumu</button>
+            </form>
         </div>
     </section>
     
-    <footer>
-        <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
-        <p>E-Pasts: info@geostore.lv</p>
-    </footer>
+  <footer class="site-footer" id="kontakti">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="GEOSTORE.LV.png" alt="GeoStore.LV Logo">
+        <div>
+          <strong>GeoStore.LV</strong><br>
+          <a href="mailto:info@geostore.lv">info@geostore.lv</a>
+        </div>
+      </div>
+      <div class="muted small">© <span id="year"></span> GeoStore.LV • Izstrādāja Toms Edvards Vucens</div>
+    </div>
+  </footer>
 
     <script>
         // Initialize EmailJS

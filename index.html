@@ -1,67 +1,98 @@
 <!-- Coded by Toms Edvards Vucens (Team GeoStore.LV)-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <link rel="icon" type="image/x-icon" href="icon.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GeoStore.LV</title>
-    <meta name="description" content="GeoStore.LV – Latvijas Geocaching veikals.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,397;1,397&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-    <meta name="google-site-verification" content="5-jfAFSJuaWYsv2anvVUyR5K4euCCkETAO_sLaNL8ow" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeoStore.LV — Latvijas Geocaching veikals</title>
+  <meta name="description" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="icon.png">
+  <meta property="og:title" content="GeoStore.LV — Latvijas Geocaching veikals">
+  <meta property="og:description" content="Viss geokešeriem: konteineri, logbooki, magnēti, dāvanas. Pasūti geostore.lv">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://geostore.lv/">
+  <meta property="og:image" content="https://geostore.lv/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="5-jfAFSJuaWYsv2anvVUyR5K4euCCkETAO_sLaNL8ow" />
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    function toggleNav(){ document.querySelector('.nav').classList.toggle('open'); }
+  </script>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <a href="./">
-                <img src="GEOSTORE.LV.png" alt="Logo" style="width: 150px;">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./products">Katalogs</a></li>
-                <li><button class="cart-btn" onclick="openCart()">Grozs</button></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./"><img class="brand-logo" src="icon.png" alt="" aria-hidden="true"><span>GeoStore.<strong>LV</strong></span></a>
+      <button class="nav-toggle" aria-label="Atvērt navigāciju" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Galvenā navigācija">
+        <a href="./">Sākums</a>
+        <a href="./products.html">Produkti</a>
+      </nav>
+      <a href="javascript:void(0)" class="cart-icon" onclick="openCart()">
+        <img src="CART.png" style="width:32px;height:32px;"> <span id="cart-count">0</span>
+      </a>
+    </div>
+  </header>
 
-    <section id="hello" class="hello">
-        <div class="welcome-section">
-            <div class="welcome-title">Laipni lūgti GeoStore.LV!</div>
-            <div class="welcome-slogan" id="slogan"></div>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Viss Geocaching vienuviet</h1>
+          <p>Konteineri, PET sagataves, logbooki un radošas maskēšanās idejas — sagatavojies nākamajam slēpnim ar GeoStore.LV.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="./products">Skatīt produktus</a>
+            <a class="btn btn-ghost" href="#par">Uzzini vairāk</a>
+          </div>
         </div>
+        <div class="hero-media">
+          <img src="BURIS1.png" alt="1.5ml mikro konteiners" loading="lazy">
+        </div>
+      </div>
     </section>
 
-    <section id="word" class="word">
-        <div class="dictionary-entry">
-            <div class="dictionary-word">Geocaching <i style="opacity: 50%;">| Slēpņošana</i></div>
-            <div class="dictionary-pos">lietvārds</div>
-            <div class="dictionary-definition">
-                Geocaching (Slēpņošana) ir nodarbe brīvā dabā ar GPS vai citiem navigācijas paņēmieniem, kuras mērķis ir visā pasaulē izvietot un meklēt konteinerus — ģeoslēpņus.
-            </div>
+    <section class="section" id="featured">
+      <div class="container">
+        <h2>Populārākās preces</h2>
+        <div class="grid cards-3" itemscope itemtype="https://schema.org/ItemList">
+          <article class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+            <img src="PET1.png" alt="PET sagatave" loading="lazy" itemprop="image">
+            <h3 itemprop="name">PET Sagatave (Caurspīdīga)</h3>
+            <p class="muted" itemprop="description">PET sagatave ir izturīgs un kompakts konteiners, kamdēļ tas ir viens no populārākajiem pasaulē.</p>
+            <h2>€0.40</h2>
+            <a class="btn btn-secondary" href="products.html#pet">Uzzināt vairāk</a>
+            <button class="btn btn-primary" onclick="addToCart('PET Sagatave (Caurspīdīga)', 0.40); openCart()">Pievienot Grozam</button>
+          </article>
+          <article class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+            <img src="LOGLV.png" alt="Viesu grāmata" loading="lazy" itemprop="image">
+            <h3 itemprop="name">Viesu grāmata (LV)</h3>
+            <p class="muted" itemprop="description">Standarta geocaching slēpņu viesu grāmata, jeb logbook, pirmo reizi Latviešu valodā ar tematiku.</p>
+            <h2>€0.50</h2>
+            <a class="btn btn-secondary" href="products.html#logbooks">Uzzināt vairāk</a>
+            <button class="btn btn-primary" onclick="addToCart('Viesu Grāmata (LV)', 0.50); openCart()">Pievienot Grozam</button>
+          </article>
+          <article class="card" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
+            <img src="MUNIC.png" alt="Neodīma magnēti" loading="lazy" itemprop="image">
+            <h3 itemprop="name">Munīcijas kaste</h3>
+            <p class="muted" itemprop="description">Munīcijas kaste ir metāla konteiners ar hermētisku aizvēršanas mehānismu.</p>
+            <h2>€10.00</h2>
+            <a class="btn btn-secondary" href="products.html#magnets">Uzzināt vairāk</a>
+            <button class="btn btn-primary" onclick="addToCart('Munīcijas Kaste', 10.00); openCart()">Pievienot Grozam</button>
+          </article>
         </div>
-    </section>
-
-    <section id="about" class="section about">
-        <h1>Par Mums</h1>
-        <p>GeoStore.LV ir specializēts Geocaching veikals Latvijā, radīts ar mērķi atbalstīt un iedvesmot gan pieredzējušus kešotājus, gan tos, kas tikai sper pirmos soļus aizraujošajā slēpņošanas pasaulē.</p>
-        <p>Mēs ticam, ka piedzīvojums sākas jau ar sagatavošanos, tāpēc piedāvājam pārbaudītus un kvalitatīvus Geocaching piederumus – no mikro konteineriem un logbookiem līdz aksesuāriem.</p>
-    </section>
-
-    <section id="panorama" class="panorama">
-        <img src="Panorama.jpg" alt="panorama">
+      </div>
     </section>
 
     <section id="qoute" class="qoute">
         <div class="quotes-container">
             <div class="quote-box">
                 <div class="quote-text">
-                Esmu ļoti apmierināts ar savu pirkumu. Veikalā GeoStore.LV atradu un iegādājos divus kvalitatīvus produktus.
+                GeoStore.LV ir veikals, kur viss rada vēlmi doties pēc vēl kāda slēpņa. Paldies par lielisko kvalitāti un rūpēm, kas jūtamas katrā produktā. Te vienmēr var atrast visu vajadzīgo geocaching piedzīvojumiem.
                 </div>
                 <div class="quote-author">
                 Lūkass <span>"Lukascicis"</span> Ieviņš
@@ -79,75 +110,47 @@
         </div>
     </section>
 
-    <section id="featured" class="section featured">
-        <h2>Piedāvātie Produkti</h2>
-        
-        <div class="product-grid">
-             <div class="featured_product">
-                <img src="PET1.png" alt="PET-Caurspīdīgs">
-                <h3><a href="./pet">PET Sagatave (Caurspīdīga)</a></h3>
-                <p>€0.40</p>
-                <button class="add-cart-btn" onclick="addToCart('PET Sagatave (Caurspīdīga)', 0.40); openCart()">Pievienot Grozam</button>
-            </div>
-            
-            <div class="featured_product">
-                <img src="LOGLV.png" alt="Putnu-Būris">
-                <h3><a href="./log-lv">Viesu Grāmata (LV)</a></h3>
-                <p>€0.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Viesu Grāmata (LV)', 0.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="featured_product">
-                <img src="BISON1.png" alt="Bison-Tube">
-                <h3><a href="./bison">"Bison Tube" (Sudraba)</a></h3>
-                <p>€1.50</p>
-                <button class="add-cart-btn" onclick="addToCart('Bison Mikro Konteiners (Sudraba)', 1.50); openCart()">Pievienot Grozam</button>
-            </div>
-
-            <div class="featured_product">
-                <img src="KOKS1.png" alt="Koka-Kamoflāža">
-                <h3><a href="./koks">PET Koka Kamoflāža</a></h3>
-                <p>€3.00</p>
-                <button class="add-cart-btn" onclick="addToCart('PET Koka Kamoflāža', 3.00); openCart()">Pievienot Grozam</button>
-            </div>
-        </div>
-        <br>
-        <br>
-        <a href="./products" class="buy-now-btn">Visi Produkti 🠊</a>
+    <section class="section alt" id="par">
+      <div class="container narrow">
+        <h2>Par GeoStore.LV</h2>
+        <p>GeoStore.LV ir specializēts Geocaching veikals Latvijā, radīts ar mērķi atbalstīt un iedvesmot gan pieredzējušus kešotājus, gan tos, kas tikai sper pirmos soļus aizraujošajā slēpņošanas pasaulē.
+        Mēs ticam, ka piedzīvojums sākas jau ar sagatavošanos, tāpēc piedāvājam pārbaudītus un kvalitatīvus Geocaching piederumus – no mikro konteineriem un logbookiem līdz aksesuāriem.</p>
     </section>
 
-    <div id="cart-modal" class="cart-modal">
-        <div class="cart-content">
-          <h3>Jūsu Grozs</h3>
-          <p id="cart-items"></p>
-          <br>
-          <p>Summa: €<span id="total-price">0.00</span></p>
-          <button class="add-cart-btn" onclick="closeCart()">Aizvērt</button>
-          <br>
-          <br>
-          <a href="./order" class="buy-now-btn">Veikt Pasūtījumu</a>
-          <br>
-          <br>
+    <section class="cta">
+      <div class="container cta-inner">
+        <h3>Sākt piedzīvojumu ir vienkārši</h3>
+        <a class="btn btn-primary" href="./products">Apskatīt piedāvājumu</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="kontakti">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="GEOSTORE.LV.png" alt="GeoStore.LV Logo">
+        <div>
+          <strong>GeoStore.LV</strong><br>
+          <a href="mailto:info@geostore.lv">info@geostore.lv</a>
         </div>
+      </div>
+      <div class="muted small">© <span id="year"></span> GeoStore.LV • Izstrādāja Toms Edvards Vucens</div>
     </div>
+  </footer>
 
-    <footer>
-        <p>Geostore.lv &copy; 2025 All Rights Reserved.</p>
-        <p>E-Pasts: info@geostore.lv</p>
-    </footer>
-
-    <script>
-        const slogans = [
-            "Augstākā kvalitāte – Zemākās cenas.",
-            "Tavs Geocaching sākums!",
-            "Viss, lai paslēpti ģeoslēpni!"
-        ];
-
-        // Izvēlas nejaušu sloganu
-        const randomSlogan = slogans[Math.floor(Math.random() * slogans.length)];
-        document.getElementById("slogan").textContent = randomSlogan;
-    </script>
-
-    <script src="script.js"></script>
+      <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+          <h2>Jūsu Grozs</h2>
+          <p id="cart-items"></p>
+          <h3>Summa: €<span id="total-price">0.00</span></h3><br>
+          <button class="btn btn-secondary" onclick="closeCart()">Aizvērt</button>
+          <a href="./order" class="btn btn-primary">Veikt Pasūtījumu</a>
+        </div>
+      </div>
+  
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
