@@ -122,6 +122,12 @@ button:hover{border-color:var(--brand)}
 .cta .btn-primary{background:#fff;color:var(--brand)}
 .cta .btn-primary:hover{background:#e7ffe7}
 
+.cta2{background:var(--brand);color:#fff;text-align:center;padding:20px 0}
+.cta2 .btn-primary{background:#fff;color:var(--brand)}
+.cta2 .btn-primary:hover{background:#e7ffe7}
+.cta2 img{margin:auto}
+
+
 /* Product Page */
 
 .product-about-box {
